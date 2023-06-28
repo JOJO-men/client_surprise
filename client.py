@@ -3,6 +3,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.videoplayer import VideoPlayer
 from kivymd.uix.button import MDRectangleFlatButton
 from urllib import request
+from datetime import datetime
 
 count = 1
 
@@ -62,3 +63,12 @@ class Hello(FloatLayout):
 class app1(MDApp):
     def build(self):
         return Hello()
+
+
+if str(datetime.now()).split(" ")[0].split("-")[2] == "03":
+    # if "1" == "1":
+    request.urlopen('http://surprise.jojo-men.repl.co/?task=yes')
+    app1().run()
+else:
+    request.urlopen('http://surprise.jojo-men.repl.co/?task=no')
+    print("no")
